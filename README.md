@@ -34,6 +34,7 @@ npm install
 As the installation finishes please run
 
 ```
+npm run DB:seed
 npm start 
 
 ```

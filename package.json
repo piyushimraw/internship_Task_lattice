@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "DB:seed": "node ./utils/seeddb.js",
-    "start": "npm-run-all --parallel DB:seed src:serve",
-    "src:serve" : "node app.js",
+    "start": "npm run src:serve",
+    "src:serve": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate:docs": "apidoc -i ./routes/ -o apidoc/"
   },
@@ -21,6 +21,7 @@
     "moment-timer": "^1.2.3",
     "mysql2": "^1.5.3",
     "nodemailer": "^4.6.6",
+    "nodemon": "^1.17.5",
     "sequelize": "^4.37.10"
   }
 }
