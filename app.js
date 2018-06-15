@@ -11,6 +11,9 @@ var Patient_Master = require("./models/patieent_master");
 var Response_Details =  require("./models/response_details");
 var Response_Master = require("./models/response_master");
 var Doctor = require("./models/doctor");
+var weekChecker = require("./utils/weekChecker");
+
+weekChecker();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.get("/patient/:id", function(req, res){
