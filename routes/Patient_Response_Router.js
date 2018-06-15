@@ -1,6 +1,8 @@
 var Patient_Response_Router = require("express").Router();
 
 var  Response_Details =  require("../models/response_details");
+var  Response_Master =  require("../models/response_master");
+var  Patient_Master  =  require("../models/patieent_master");
 
 /**
  * @apiDescription This API is to sending response by user.
@@ -18,17 +20,16 @@ Patient_Response_Router.route("/Response")
                         .post((req,res) => {
                             if(req.body.response_id)
                              {
-                                Response_Details
-                                .findOrCreate({where: {response_id: req.body.response_id}, 
-                                               defaults: {response_text: req.body.response_text}})
-                                .spread((resp, created) => {
-                                  res.status(200).json(resp.get({
-                                    plain: true
-                                  }))
-                                  if(created){
-                                      
-                                  }
-                                });
+                                Response_Details.create(
+                                    {
+                                        response_id: req.body.response_id,
+                                        response_text: req.body.response_text
+                                    }).then(newResponse => {
+                                        
+                                        res.status(200).json(newResponse);
+                                    }).catch(error => {
+                                        res.status(200).send("Error");
+                                    })
                              }
                              else{
                                  res.status(500).send('Server Error  or Empty Post');

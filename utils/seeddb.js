@@ -1,6 +1,7 @@
 var Patient_Master = require("../models/patieent_master");
 var Doctor = require("../models/doctor");
 var Response_Details = require("../models/response_details");
+var Response_Master =  require("../models/response_master");
 
 
   // Patient_Master.sync({force: true}).then(() => {
@@ -33,4 +34,13 @@ var Response_Details = require("../models/response_details");
 //     });
 //   });
 
+
+//     Response_Master.sync({force: true}).then(() => {
+// //     Table created
+//      return Response_Master.create({
+//       response_id: 23432324,
+//       patient_id: 342312,
+//       create_on: new Date('June 1, 2018 03:24:00')
+//     });
+//   });
 
