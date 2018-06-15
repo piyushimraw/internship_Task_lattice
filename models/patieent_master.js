@@ -4,7 +4,8 @@ var sequelize = require("./db_connection");
 
 const Patient_Master = sequelize.define('Patient_Master', {
     patient_id: {
-      type: Sequelize.BIGINT
+      type: Sequelize.BIGINT,
+      primaryKey: true,
     },
     prescription_date: {
       type: Sequelize.DATEONLY
