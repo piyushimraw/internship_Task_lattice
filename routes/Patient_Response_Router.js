@@ -32,6 +32,14 @@ Patient_Response_Router.route("/Response")
                                                 has_surveyed: true,
                                             })
                                         });
+                                        Response_Master.create (
+                                            {
+                                                response_id: newResponse.response_id,
+                                                patient_id: req.body.patientID,
+                                                created_on: Date.now()
+
+                                            }
+                                        )
                                         res.status(200).json(newResponse);
                                     }).catch(error => {
                                         res.status(200).send("Error");

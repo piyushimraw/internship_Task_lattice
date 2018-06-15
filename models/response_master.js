@@ -2,9 +2,10 @@ var Sequelize = require("sequelize");
 
 var sequelize = require("./db_connection");
 
-const Response_details = sequelize.define('Response_details', {
+const Response_Master= sequelize.define('Response_Master', {
     response_id: {
       type: Sequelize.BIGINT,
+      
     },
     patient_id: {
       type: Sequelize.STRING
@@ -14,4 +15,4 @@ const Response_details = sequelize.define('Response_details', {
     }
   });
 
-  module.exports = Response_details;
+  module.exports = Response_Master;
