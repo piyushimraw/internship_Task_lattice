@@ -1,7 +1,10 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('patientSys', 'root', 'biohazard', {
-  host: 'localhost',
-  dialect: 'mysql',
+const CONFIG = require("../config");
+
+
+const sequelize = new Sequelize(CONFIG.DB, CONFIG.USER, CONFIG.PASSWORD, {
+  host: CONFIG.HOST,
+  dialect: CONFIG.DIALECT,
   operatorsAliases: false,
 
   pool: {
