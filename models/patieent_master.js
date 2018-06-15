@@ -14,6 +14,9 @@ const Patient_Master = sequelize.define('Patient_Master', {
     },
     doctor_id: {
         type: Sequelize.STRING
+    },
+    has_surveyed: {
+      type: Sequelize.BOOLEAN
     }
   });
 
