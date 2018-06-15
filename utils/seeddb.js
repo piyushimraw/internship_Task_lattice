@@ -27,7 +27,7 @@ var Response_Details = require("../models/response_details");
 
 //     Response_Details.sync({force: true}).then(() => {
 // //     Table created
-//      return Doctor.create({
+//      return Response_Details.create({
 //       response_id: 001,
 //       response_text: "Get Well soon",
 //     });
