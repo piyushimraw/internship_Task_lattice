@@ -9,6 +9,7 @@ var  Response_Details =  require("../models/response_details");
  * 
  *
  * @api {post} api/Response
+ * @apiParam {Number} [patientID=001] Will be sent along with post request when user is logged in else this post route can not be accessed by user
  * @apiParam {Number} response_id   Mandatory ID for sample form response.
  * @apiParam {String} response_text Mandatory text for sample.
  * @apiSampleRequest http://localhost:4000/api/Response
@@ -24,7 +25,9 @@ Patient_Response_Router.route("/Response")
                                   res.status(200).json(resp.get({
                                     plain: true
                                   }))
-                                  console.log(created)
+                                  if(created){
+                                      
+                                  }
                                 });
                              }
                              else{

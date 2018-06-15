@@ -10,6 +10,14 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "Number",
+            "optional": true,
+            "field": "patientID",
+            "defaultValue": "001",
+            "description": "<p>Will be sent along with post request when user is logged in else this post route can not be accessed by user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
             "optional": false,
             "field": "response_id",
             "description": "<p>Mandatory ID for sample form response.</p>"
