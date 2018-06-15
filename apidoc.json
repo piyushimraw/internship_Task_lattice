@@ -1,0 +1,7 @@
+{
+    "name": "InternShip Node Lattice",
+    "version": "0.1.0",
+    "description": "Contains Documentation for APIs exposed for frontend developes",
+    "title": "Patient-Doctpr-Interaction",
+    "url" : "https://localhost:4000/"
+  }
