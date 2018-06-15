@@ -25,11 +25,17 @@ Patient_Response_Router.route("/Response")
                                         response_id: req.body.response_id,
                                         response_text: req.body.response_text
                                     }).then(newResponse => {
-                                        
+                                        Patient_Master.findOne({where:{
+                                            patient_id: req.body.patientID,
+                                        }}).then(p => {
+                                            p.updateAttributes({
+                                                has_surveyed: true,
+                                            })
+                                        });
                                         res.status(200).json(newResponse);
                                     }).catch(error => {
                                         res.status(200).send("Error");
-                                    })
+                                    }).catch(err => console.log(err))
                              }
                              else{
                                  res.status(500).send('Server Error  or Empty Post');
