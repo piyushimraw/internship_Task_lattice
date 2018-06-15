@@ -17,10 +17,18 @@ Patient_Response_Router.route("/Response")
                         .post((req,res) => {
                             if(req.body.response_id)
                              {
-                                 
-                                 res.status(200).send("OK");
-                             }else{
-                                res.status(500).send("Internal Server Error");
+                                Response_Details
+                                .findOrCreate({where: {response_id: req.body.response_id}, 
+                                               defaults: {response_text: req.body.response_text}})
+                                .spread((resp, created) => {
+                                  res.status(200).json(resp.get({
+                                    plain: true
+                                  }))
+                                  console.log(created)
+                                });
+                             }
+                             else{
+                                 res.status(500).send('Server Error  or Empty Post');
                              }
                         });
 
