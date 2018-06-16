@@ -3,5 +3,13 @@
     "version": "0.1.0",
     "description": "Contains Documentation for APIs exposed for frontend developes",
     "title": "Patient-Doctpr-Interaction",
-    "url" : "https://localhost:4000/"
+    "url" : "https://localhost:4000/",
+    "header": {
+      "title": "API Documentation",
+      "filename": "header.md"
+    },
+    "footer": {
+      "title": "</>",
+      "filename": "footer.md"
+    }
   }
