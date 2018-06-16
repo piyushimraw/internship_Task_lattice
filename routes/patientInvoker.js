@@ -17,6 +17,8 @@ var Doctor = require("../models/doctor");
 /**
  * @api {get} api/patient/:id API to Invoke Mailer
  * @apiDescription This APi will invoke Mailer to notify patient that have not surveyed yet
+ * To test this go Patient Response and send the response for useer_id = 001 to various dates and hit the get  route for same id  = 001
+ * mail will be sent if response is like more than 5 weeks old
  * @apiGroup Patient
  * @apiName Invoke Patient Mailer
  * @apiSampleRequest http://localhost:4000/api/patient/001
