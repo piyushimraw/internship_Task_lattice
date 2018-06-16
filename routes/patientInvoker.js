@@ -29,15 +29,18 @@ patientInvokerRouter.get("/:id" , (req, res)=> {
         patient_id : PatientID
     }}).then( p => {
         var datePrescription =  moment(p.prescription_date);
-        if(datePrescription.add(5, "w") < moment()){
+        if(datePrescription.add(5, "w").isBefore(moment())){
             //Checking if User has Submitted any response
             Response_Master.findOne({where: {patient_id: p.patient_id}})
                             .then(r => {
-                                if(moment(r.created_on).add(5, "w")){
+                                if(moment(r.created_on).add(5, "w").isBefore( moment())){
                                     Doctor.findOne({where: {doctor_id:p.doctor_id}}).then(doc => {
                                         mailer("Doctor Who", doc.email_id);
                                         res.status(200).send(`Sending Mail to ${doc.email_id}`);
                                     });                                   
+                                }
+                                else {
+                                    res.send("No Need to Send the Mail")
                                 }
                             }).catch( e => {
                                 Doctor.findOne({where: {doctor_id:p.doctor_id}}).then(doc => {
@@ -45,9 +48,6 @@ patientInvokerRouter.get("/:id" , (req, res)=> {
                                     res.status(200).send(`Sending Mail to ${doc.email_id}`);
                                 })
                             });
-        }
-        else {
-            res.send("No Need to Send Mail");
         }
     }).catch(e => res.status(400).send("Patient Not Found"));
 

@@ -28,13 +28,6 @@ Patient_Response_Router.route("/Response")
                                         response_text: req.body.response_text,
                                         response_date: req.body.response_date,
                                     }).then(newResponse => {
-                                        Patient_Master.findOne({where:{
-                                            patient_id: req.body.patientID,
-                                        }}).then(p => {
-                                            p.updateAttributes({
-                                                has_surveyed: true,
-                                            })
-                                        });
                                         Response_Master.create (
                                             {
                                                 response_id: newResponse.response_id,
